@@ -3,7 +3,7 @@ const frutas = [];
 frutas.push("Abacaxi");
 frutas.push("Banana");
 frutas.push("Caju");
-frutas.push("dAMASCO");
+frutas.push("Damasco");
 
 function imprimir(fruta, posicao) {
   const novaPosicao = posicao + 1;
@@ -33,22 +33,34 @@ const frutasMaior = frutas.map(paraMaiuscula);
 const frutasObjeto = frutasMaior.map(criarFruta);
 
 function escreverLiDom(fruta) {
-  document.write(`<li>${fruta}</li>`);
+  document.write(`<li>${fruta.nome}......... R$${fruta.preco}</li>`);
 }
 
+//  frutasObjeto.forEach(escreverLiDom)
 //Criem uma funcao que transforma uma lista de Objetos de frutas
 // Em uma LI abacaxi, R$ 8,90
 // E depois escrever na DOM ul
 
-function trasnformaFrutaEmLI(fruta) {
-  return `<li>${fruta.nome}</li>`;
-}
+// function trasnformaFrutaEmLI(fruta) {
+//   return `<li>${fruta.nome}</li>`;
+// }
 
-const frutasLi = frutasObjeto.map(trasnformaFrutaEmLI);
+// const frutasLi = frutasObjeto.map(trasnformaFrutaEmLI);
 
-// frutasLi.forEach((frutaLi) => {
-//   document.write(frutaLi);
-// });
+// // frutasLi.forEach((frutaLi) => {
+// //   document.write(frutaLi);
+// // });
 
 
-let ul = document.getElementById("ul1")
+
+let ul = document.querySelector("ul")
+
+
+
+frutasObjeto.forEach((fruta)=>{
+  let li = document.createElement("li")
+  li.textContent = `${fruta.nome}......... R$${fruta.preco}`
+  ul.appendChild(li)
+})
+
+
